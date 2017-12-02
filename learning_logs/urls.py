@@ -7,4 +7,7 @@ from . import views
 urlpatterns = [
 	# main page
 	url(r'^$', views.index, name='index'),
+
+	# show all topics
+	url(r'^topics/$',views.topics, name='topics'),
 ]
