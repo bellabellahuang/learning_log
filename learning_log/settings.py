@@ -136,22 +136,20 @@ BOOTSTRAP3 = {
 }
 
 # Heroku setting
-if os.getcwd() == '/app':
-	import dj_database_url
-	DATABASES ={
-		'default': dj_database_url.config(default='postgres://localhost')
-	}
+DATABASES ={
+	'default': dj_database_url.config(default='postgres://localhost')
+}
 
-	# 让request.is_secure()承认X-Forwarded-Proto头
-	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# 让request.is_secure()承认X-Forwarded-Proto头
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-	#支持所有的主机头（host header)
-	ALLOWED_HOSTS = ['*']
+#支持所有的主机头（host header)
+ALLOWED_HOSTS = ['*']
 
-	# 静态资产配置
-	PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-	STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-	STATIC_URL = '/static/'
-	STATICFILES_DIRS = (
-		os.path.join(PROJECT_ROOT, 'static'),
-	)
+# 静态资产配置
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_URL = '/learning_log/static/'
+STATICFILES_DIRS = (
+	os.path.join(PROJECT_ROOT, 'static'),
+)
